@@ -1,0 +1,47 @@
+.app {
+  display: grid;
+  height: 100vh;
+  grid-template: 5rem 1fr 5rem / 15rem 1fr 1fr;
+  grid-template-areas:
+    "header header header"
+    "side main main"
+    "footer footer footer";
+}
+
+.header {
+  grid-area: header;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  background-color: cadetblue;
+}
+
+.side {
+  grid-area: side;
+}
+
+.student-list {
+  list-style: none;
+  padding: 0;
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template: 450px / 90%;
+}
+
+.graph-container {
+  overflow-x: scroll;
+}
+
+.evaluations-graph {
+  position: relative;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: cadetblue;
+}

@@ -1,0 +1,41 @@
+import React from "react";
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  FormGroup,
+  Checkbox,
+} from "@material-ui/core";
+
+const FilterMenu = (props) => {
+  const { fun, difficulty } = props.filters;
+  return (
+    <FormControl component="fieldset" className="filter-menu">
+      <FormLabel component="legend">Choose your filter</FormLabel>
+      <FormGroup>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={fun}
+              onChange={props.handleFilterChange}
+              name="fun"
+            />
+          }
+          label="Fun"
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={difficulty}
+              onChange={props.handleFilterChange}
+              name="difficulty"
+            />
+          }
+          label="Difficulty"
+        />
+      </FormGroup>
+    </FormControl>
+  );
+};
+
+export default FilterMenu;
