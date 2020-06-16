@@ -1,4 +1,4 @@
-const evaluations = [
+export const Evaluations = [
   {
     name: "Evelyn",
     assignment: "SCRUM",
@@ -3361,4 +3361,93 @@ const evaluations = [
   },
 ];
 
-export default evaluations;
+const students = [
+  {
+    id: 1,
+    lastName: "Winterbottom",
+    phone: "714-457-0817",
+    email: "awinterbottom0@abc.net.au",
+    avatar: "https://robohash.org/quiestaut.jpg?size=200x200&set=set1",
+  },
+  {
+    id: 2,
+    lastName: "Garlicke",
+    phone: "569-485-6075",
+    email: "kgarlicke1@blog.com",
+    avatar:
+      "https://robohash.org/reprehenderitdoloret.jpg?size=200x200&set=set1",
+  },
+  {
+    id: 3,
+    lastName: "Grgic",
+    phone: "831-444-9100",
+    email: "ogrgic2@google.es",
+    avatar: "https://robohash.org/nesciuntaddolores.jpg?size=200x200&set=set1",
+  },
+  {
+    id: 4,
+    lastName: "Kneath",
+    phone: "847-483-7090",
+    email: "tkneath3@smugmug.com",
+    avatar: "https://robohash.org/dictaidiusto.jpg?size=200x200&set=set1",
+  },
+  {
+    id: 5,
+    lastName: "Filipchikov",
+    phone: "635-734-9074",
+    email: "efilipchikov4@a8.net",
+    avatar:
+      "https://robohash.org/etreprehenderitnisi.jpg?size=200x200&set=set1",
+  },
+  {
+    id: 6,
+    lastName: "Aries",
+    phone: "452-895-0914",
+    email: "daries5@chicagotribune.com",
+    avatar: "https://robohash.org/eligendirationenon.jpg?size=200x200&set=set1",
+  },
+  {
+    id: 7,
+    lastName: "Toe",
+    phone: "378-950-8681",
+    email: "btoe6@parallels.com",
+    avatar:
+      "https://robohash.org/assumendasapienteoptio.jpg?size=200x200&set=set1",
+  },
+  {
+    id: 8,
+    lastName: "Yashunin",
+    phone: "377-405-8019",
+    email: "kyashunin7@sina.com.cn",
+    avatar:
+      "https://robohash.org/laborumdoloremaliquam.jpg?size=200x200&set=set1",
+  },
+  {
+    id: 9,
+    lastName: "Trounce",
+    phone: "734-634-3372",
+    email: "ytrounce8@wisc.edu",
+    avatar:
+      "https://robohash.org/blanditiiscupiditatedignissimos.jpg?size=200x200&set=set1",
+  },
+  {
+    id: 10,
+    lastName: "Janikowski",
+    phone: "261-535-5724",
+    email: "ljanikowski9@java.com",
+    avatar: "https://robohash.org/ducimusetomnis.jpg?size=200x200&set=set1",
+  },
+];
+
+const studentNames = [];
+Evaluations.forEach((evaluation) => {
+  if (!studentNames.includes(evaluation.name))
+    studentNames.push(evaluation.name);
+});
+
+export const Students = students.map((student, index) => {
+  return {
+    ...student,
+    firstName: studentNames[index],
+  };
+});

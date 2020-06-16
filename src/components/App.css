@@ -18,6 +18,12 @@
 
 .side {
   grid-area: side;
+  display: grid;
+  row-gap: 1rem;
+  justify-items: center;
+  overflow-y: scroll;
+  padding: 1rem 0;
+  border-right: lightgray 1px solid;
 }
 
 .student-list {
@@ -30,7 +36,14 @@
   display: grid;
   align-content: center;
   justify-content: center;
-  grid-template: 450px / 90%;
+  padding: 1rem 0;
+  row-gap: 1rem;
+  grid-template: 300px 460px / 90%;
+}
+
+.student-profile {
+  width: 50%;
+  justify-self: center;
 }
 
 .graph-container {
@@ -38,10 +51,12 @@
 }
 
 .evaluations-graph {
-  position: relative;
 }
 
 .footer {
   grid-area: footer;
   background-color: cadetblue;
+  display: grid;
+  align-content: center;
+  justify-content: center;
 }

@@ -38,7 +38,6 @@ const MainView = (props) => {
           height={400}
         >
           <DiscreteColorLegend
-            style={{ position: "absolute", left: "50px", top: "10px" }}
             orientation="horizontal"
             items={[
               { title: "Difficulty", color: "#12939A" },

@@ -9,6 +9,7 @@ import {
   DiscreteColorLegend,
 } from "react-vis";
 import { useParams } from "react-router-dom";
+import { Card, CardHeader, Avatar, CardContent } from "@material-ui/core";
 
 const StudentView = (props) => {
   const { name } = useParams();
@@ -34,8 +35,19 @@ const StudentView = (props) => {
     });
   const noFilters = Object.entries(props.filters).every((filter) => !filter[1]);
   const { fun, difficulty } = props.filters;
+  const student = props.students.find((student) => student.firstName === name);
   return (
     <div className="main">
+      <Card className="student-profile" variant="outlined">
+        <CardHeader
+          avatar={
+            <Avatar
+              alt={`${student.firstName} ${student.lastName}`}
+              src={student.avatar}
+            />
+          }
+        ></CardHeader>
+      </Card>
       <div className="graph-container">
         <XYPlot
           className="evaluations-graph"
@@ -44,7 +56,6 @@ const StudentView = (props) => {
           height={400}
         >
           <DiscreteColorLegend
-            style={{ position: "absolute", left: "50px", top: "10px" }}
             orientation="horizontal"
             items={[
               { title: "Difficulty", color: "#12939A" },

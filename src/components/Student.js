@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ListItemLink from "./ListItemLink";
 
 const Student = (props) => {
+  const { firstName, lastName, avatar } = props.student;
   return (
-    <li>
-      <Link to={`/students/${props.name}`}>{props.name}</Link>
-    </li>
+    <ListItemLink
+      avatar={avatar}
+      primary={`${firstName} ${lastName}`}
+      to={`/students/${firstName}`}
+    />
   );
 };
 

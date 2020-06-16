@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "./App.css";
-import Evaluations from "../evaluations";
+import { Evaluations, Students } from "../data";
 import Header from "./Header";
 import Footer from "./Footer";
 import MainView from "./MainView";
@@ -15,6 +15,7 @@ function App() {
     fun: false,
     difficulty: false,
   });
+  const [students] = useState(Students);
   const handleFilterChange = (event) => {
     const { name, checked } = event.target;
     setFilters((prevFilters) => {
@@ -33,14 +34,18 @@ function App() {
           <Side
             handleFilterChange={handleFilterChange}
             filters={filters}
-            evaluations={evaluations}
+            students={students}
           />
           <Switch>
             <Route exact path="/">
               <MainView filters={filters} evaluations={evaluations} />
             </Route>
             <Route path="/students/:name">
-              <StudentView filters={filters} evaluations={evaluations} />
+              <StudentView
+                students={students}
+                filters={filters}
+                evaluations={evaluations}
+              />
             </Route>
           </Switch>
           <Footer />

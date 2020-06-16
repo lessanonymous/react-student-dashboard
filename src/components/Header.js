@@ -1,9 +1,12 @@
 import React from "react";
+import { Typography } from "@material-ui/core";
 
 const Header = (props) => {
   return (
     <div className="header">
-      <h1>Student Dashboard</h1>
+      <Typography component="h1" variant="h3">
+        Student Dashboard
+      </Typography>
     </div>
   );
 };

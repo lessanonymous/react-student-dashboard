@@ -11,7 +11,7 @@ const FilterMenu = (props) => {
   const { fun, difficulty } = props.filters;
   return (
     <FormControl component="fieldset" className="filter-menu">
-      <FormLabel component="legend">Choose your filter</FormLabel>
+      <FormLabel component="legend">Evaluation Type</FormLabel>
       <FormGroup>
         <FormControlLabel
           control={

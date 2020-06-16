@@ -1,16 +1,16 @@
 import React from "react";
 import Student from "./Student";
+import { List } from "@material-ui/core";
 
 const StudentList = (props) => {
-  const studentNames = [];
-  props.evaluations.forEach((evaluation) => {
-    if (!studentNames.includes(evaluation.name))
-      studentNames.push(evaluation.name);
-  });
-  const students = studentNames.map((name) => (
-    <Student key={name} name={name} />
+  const studentComponents = props.students.map((student) => (
+    <Student key={student.id} student={student} />
   ));
-  return <ul className="student-list">{students}</ul>;
+  return (
+    <List component="nav" className="student-list">
+      {studentComponents}
+    </List>
+  );
 };
 
 export default StudentList;
