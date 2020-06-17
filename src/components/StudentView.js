@@ -52,6 +52,7 @@ const StudentView = (props) => {
           width={3500}
           height={400}
           animation={true}
+          margin={{ left: 40, right: 10, top: 10, bottom: 60 }}
         >
           <DiscreteColorLegend
             orientation="horizontal"
@@ -62,7 +63,7 @@ const StudentView = (props) => {
           />
           <VerticalGridLines />
           <HorizontalGridLines />
-          <XAxis />
+          <XAxis tickLabelAngle={-45} />
           <YAxis />
           <VerticalBarSeries
             opacity={noFilters || difficulty ? 1 : 0}
