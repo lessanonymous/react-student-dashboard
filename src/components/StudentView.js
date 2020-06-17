@@ -9,7 +9,14 @@ import {
   DiscreteColorLegend,
 } from "react-vis";
 import { useParams } from "react-router-dom";
-import { Card, CardHeader, Avatar, CardContent } from "@material-ui/core";
+import {
+  Card,
+  CardHeader,
+  Avatar,
+  CardContent,
+  Typography,
+} from "@material-ui/core";
+import { Phone, Email } from "@material-ui/icons";
 
 const StudentView = (props) => {
   const { name } = useParams();
@@ -37,23 +44,14 @@ const StudentView = (props) => {
   const { fun, difficulty } = props.filters;
   const student = props.students.find((student) => student.firstName === name);
   return (
-    <div className="main">
-      <Card className="student-profile" variant="outlined">
-        <CardHeader
-          avatar={
-            <Avatar
-              alt={`${student.firstName} ${student.lastName}`}
-              src={student.avatar}
-            />
-          }
-        ></CardHeader>
-      </Card>
+    <div className="student-main">
       <div className="graph-container">
         <XYPlot
           className="evaluations-graph"
           xType="ordinal"
           width={3500}
           height={400}
+          animation={true}
         >
           <DiscreteColorLegend
             orientation="horizontal"
@@ -78,6 +76,30 @@ const StudentView = (props) => {
           />
         </XYPlot>
       </div>
+      <Card className="student-profile" variant="outlined">
+        <CardHeader
+          avatar={
+            <Avatar
+              className="student-avatar"
+              alt={`${student.firstName} ${student.lastName}`}
+              src={student.avatar}
+            />
+          }
+          title={
+            <Typography variant="h6" component="h3">
+              {`${student.firstName} ${student.lastName}`}
+            </Typography>
+          }
+        ></CardHeader>
+        <CardContent>
+          <Typography variant="subtitle1" component="h3">
+            <Phone /> {` ${student.phone}`}
+          </Typography>
+          <Typography variant="subtitle1" component="h3">
+            <Email /> {` ${student.email}`}
+          </Typography>
+        </CardContent>
+      </Card>
     </div>
   );
 };

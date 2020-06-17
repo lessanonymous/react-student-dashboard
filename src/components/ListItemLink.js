@@ -22,7 +22,7 @@ function ListItemLink(props) {
     <li>
       <ListItem button component={renderLink}>
         <ListItemAvatar>
-          <Avatar alt={primary} src={avatar} />
+          <Avatar className="student-avatar" alt={primary} src={avatar} />
         </ListItemAvatar>
         <ListItemText primary={primary} />
       </ListItem>

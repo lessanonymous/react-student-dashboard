@@ -36,6 +36,7 @@ const MainView = (props) => {
           xType="ordinal"
           width={3500}
           height={400}
+          animation={true}
         >
           <DiscreteColorLegend
             orientation="horizontal"
