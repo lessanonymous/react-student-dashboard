@@ -54,6 +54,12 @@
   align-self: flex-start;
 }
 
+.student-info-text {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  align-items: center;
+}
+
 .student-avatar {
   height: 100px;
   width: 100px;

@@ -93,10 +93,18 @@ const StudentView = (props) => {
           }
         ></CardHeader>
         <CardContent>
-          <Typography variant="subtitle1" component="h3">
+          <Typography
+            className="student-info-text"
+            variant="subtitle1"
+            component="h3"
+          >
             <Phone /> {` ${student.phone}`}
           </Typography>
-          <Typography variant="subtitle1" component="h3">
+          <Typography
+            className="student-info-text"
+            variant="subtitle1"
+            component="h3"
+          >
             <Email /> {` ${student.email}`}
           </Typography>
         </CardContent>
