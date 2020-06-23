@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  XYPlot,
-  XAxis,
-  YAxis,
-  VerticalBarSeries,
-  DiscreteColorLegend,
-  VerticalGridLines,
-  HorizontalGridLines,
-} from "react-vis";
+import MainGraph from "./MainGraph";
 
 const MainView = (props) => {
   const funEvaluations = props.evaluations.map((evaluation) => {
@@ -18,7 +10,7 @@ const MainView = (props) => {
       y: evaluation.fun,
     };
   });
-  const DifficultyEvaluations = props.evaluations.map((evaluation) => {
+  const difficultyEvaluations = props.evaluations.map((evaluation) => {
     if (evaluation.assignment.includes(" "))
       evaluation.assignment = evaluation.assignment.split(" ")[0];
     return {
@@ -26,42 +18,13 @@ const MainView = (props) => {
       y: evaluation.difficulty,
     };
   });
-  const noFilters = Object.entries(props.filters).every((filter) => !filter[1]);
-  const { fun, difficulty } = props.filters;
   return (
     <div className="main">
-      <div className="graph-container">
-        <XYPlot
-          className="evaluations-graph"
-          xType="ordinal"
-          width={3500}
-          height={400}
-          animation={true}
-          margin={{ left: 40, right: 10, top: 10, bottom: 60 }}
-        >
-          <DiscreteColorLegend
-            orientation="horizontal"
-            items={[
-              { title: "Difficulty", color: "#12939A" },
-              { title: "Fun", color: "#79C7E3" },
-            ]}
-          />
-          <VerticalGridLines />
-          <HorizontalGridLines />
-          <XAxis tickLabelAngle={-45} />
-          <YAxis />
-          <VerticalBarSeries
-            opacity={noFilters || difficulty ? 1 : 0}
-            data={DifficultyEvaluations}
-            color="#12939A"
-          />
-          <VerticalBarSeries
-            opacity={noFilters || fun ? 1 : 0}
-            data={funEvaluations}
-            color="#79C7E3"
-          />
-        </XYPlot>
-      </div>
+      <MainGraph
+        funEvaluations={funEvaluations}
+        difficultyEvaluations={difficultyEvaluations}
+        filters={props.filters}
+      />
     </div>
   );
 };
